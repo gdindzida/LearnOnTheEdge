@@ -1,8 +1,6 @@
 # Roadmap
 
-## Stage 1: Bare Metal & Real-Time Systems
-
-### EMBD-0: What happens after reset?
+## EMBD-0: What happens after reset?
 
 <details>
 - Practical:
@@ -25,7 +23,7 @@
     - weact dev board stm32h743 - do the excercise on this one as well to set it up and test
 </details>
 
-### EMBD-1: Read and write a hardware register
+## EMBD-1: Read and write a hardware register
 
 <details>
 - Practical:
@@ -43,7 +41,7 @@
     - weact dev board stm32h743 - do the excercise on this one as well to set it up and test
 </details>
 
-### EMBD-2: Understand the memory
+## EMBD-2: Understand the memory
 
 <details>
 - Practical:
@@ -66,7 +64,7 @@
     - weact dev board stm32h743 - do the excercise on this one as well to set it up and test
 </details>
 
-### EMBD-3: Write your own startup
+## EMBD-3: Write your own startup
 
 <details>
 - Practical:
@@ -83,7 +81,7 @@
     - weact dev board stm32h743 - do the excercise on this one as well to set it up and test
 </details>
 
-### EMBD-4: First interrupt
+## EMBD-4: First interrupt
 
 <details>
 - Practical:
@@ -116,9 +114,9 @@
     - weact dev board stm32h743 - do the excercise on this one as well to set it up and test
 </details>
 
-### EMBD-5+: Remaining work 
+## EMBD-5+: Remaining work 
 
-#### Midterm
+### Midterm
 
 - interrupt safe communication
     - Practical:
@@ -172,7 +170,7 @@
     - exception entry
     - post-mortem debugging
 
-#### Longterm
+### Longterm
 
 - Embedded Linux and SoC arch
     - arm64 and modern CPU arch
