@@ -8,7 +8,7 @@
     - FPGA = fpga
         - Latest id: 4
     - MLIN = ml inference
-        - Latest id: -1
+        - Latest id: 3
     - PRPR = parallel programming
         - Latest id: -1
 
@@ -17,7 +17,7 @@
 - COMM-1: Create roadmaps
     - [x] embedded
     - [x] fpga
-    - [ ] parallel programming
+    - [x] parallel programming
     - [ ] ml inference
 
 ## Planned
@@ -38,6 +38,11 @@
 - FPGA-2: Clocked logic
 - FPGA-3: FSM + valid/ready
 - FPGA-4: Build a hardware multiplier peripheral
+
+- PRPR-0: Set up CUDA and compile hello world 
+- PRPR-1: Vector addition
+- PRPR-2: Multidimensional threads: Image blur 
+- PRPR-3: Matrix multiplication and memory hierarchy
 
 ## Done
 
