@@ -10,15 +10,10 @@
     - MLIN = ml inference
         - Latest id: 3
     - PRPR = parallel programming
-        - Latest id: -1
+        - Latest id: 9
 
 ## In progress
 
-- COMM-1: Create roadmaps
-    - [x] embedded
-    - [x] fpga
-    - [x] parallel programming
-    - [ ] ml inference
 
 ## Planned
 
@@ -44,12 +39,28 @@
 - PRPR-2: Multidimensional threads: Image blur 
 - PRPR-3: Matrix multiplication and memory hierarchy
 
+- MLIN-0: Build a minimal tensor library
+- MLIN-1: Implement the basic neural network operator layer
+- MLIN-2: Implement convolution and run your first complete CNN
+- MLIN-3: Build the correctness + benchmarking infrastructure
+- MLIN-4: Optimize GEMM and understand CPU performance
+- MLIN-5: Build a Tiny Inference Runtime
+- MLIN-6: Implement Your First CUDA Operators
+- MLIN-7: Optimize CUDA GEMM
+- MLIN-8: Implement Basic Quantization
+- MLIN-9: Compare Against Production Inference Runtimes
+
 ## Done
 
 ### Common
 
 <details>
 - COMM-0: Set up the repository
+- COMM-1: Create roadmaps
+    - [x] embedded
+    - [x] fpga
+    - [x] parallel programming
+    - [x] ml inference
 
 </details>
 
