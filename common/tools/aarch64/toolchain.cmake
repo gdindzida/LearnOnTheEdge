@@ -1,0 +1,33 @@
+# Load with -DCMAKE_TOOLCHAIN_FILE=/absolute/path/to/this/file.
+set(CMAKE_SYSTEM_NAME Linux)
+set(CMAKE_SYSTEM_PROCESSOR aarch64)
+
+set(_aarch64_root "${CMAKE_CURRENT_LIST_DIR}/arm-gnu-toolchain-13.3.rel1-x86_64-aarch64-none-linux-gnu")
+set(_aarch64_prefix "${_aarch64_root}/bin/aarch64-none-linux-gnu")
+foreach(_tool gcc g++ ar ranlib ld nm objcopy objdump strip readelf)
+    if(NOT EXISTS "${_aarch64_prefix}-${_tool}")
+        message(FATAL_ERROR "Missing AArch64 tool: ${_aarch64_prefix}-${_tool}. Run bash ${CMAKE_CURRENT_LIST_DIR}/setup.sh first.")
+    endif()
+endforeach()
+set(CMAKE_C_COMPILER "${_aarch64_prefix}-gcc")
+set(CMAKE_CXX_COMPILER "${_aarch64_prefix}-g++")
+set(CMAKE_AR "${_aarch64_prefix}-ar")
+set(CMAKE_RANLIB "${_aarch64_prefix}-ranlib")
+set(CMAKE_LINKER "${_aarch64_prefix}-ld")
+set(CMAKE_NM "${_aarch64_prefix}-nm")
+set(CMAKE_OBJCOPY "${_aarch64_prefix}-objcopy")
+set(CMAKE_OBJDUMP "${_aarch64_prefix}-objdump")
+set(CMAKE_STRIP "${_aarch64_prefix}-strip")
+set(CMAKE_READELF "${_aarch64_prefix}-readelf")
+
+execute_process(COMMAND "${CMAKE_C_COMPILER}" -print-sysroot
+    OUTPUT_VARIABLE CMAKE_SYSROOT OUTPUT_STRIP_TRAILING_WHITESPACE
+    RESULT_VARIABLE _aarch64_result)
+if(NOT _aarch64_result EQUAL 0 OR NOT IS_DIRECTORY "${CMAKE_SYSROOT}")
+    message(FATAL_ERROR "Cannot locate bundled AArch64 sysroot. Rerun setup.sh after removing the incomplete bundle.")
+endif()
+set(CMAKE_FIND_ROOT_PATH "${CMAKE_SYSROOT}")
+set(CMAKE_FIND_ROOT_PATH_MODE_PROGRAM NEVER)
+set(CMAKE_FIND_ROOT_PATH_MODE_LIBRARY ONLY)
+set(CMAKE_FIND_ROOT_PATH_MODE_INCLUDE ONLY)
+set(CMAKE_FIND_ROOT_PATH_MODE_PACKAGE ONLY)

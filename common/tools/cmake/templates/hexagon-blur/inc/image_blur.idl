@@ -1,0 +1,7 @@
+#include "AEEStdDef.idl"
+#include "remote.idl"
+
+interface image_blur : remote_handle64 {
+    AEEResult apply(in sequence<uint8> input, rout sequence<uint8> output,
+                    in long width, in long height);
+};

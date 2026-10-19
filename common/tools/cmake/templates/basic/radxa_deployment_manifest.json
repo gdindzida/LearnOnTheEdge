@@ -1,0 +1,17 @@
+{
+    "ssh_target": "radxa@radxa-dragon-q6a",
+    "upload": [
+        {
+            "source": "build/linux-aarch64/basic_app",
+            "destination": "~/test/basic_app"
+        }
+    ],
+    "run": {
+        "executable": "~/test/basic_app",
+        "cwd": "~/test",
+        "args": []
+    },
+    "clean": [
+        "~/test"
+    ]
+}

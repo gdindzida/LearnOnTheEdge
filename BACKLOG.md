@@ -2,25 +2,25 @@
 
 - labels legend:
     - COMM = common
-        - Latest id: 5
+        - Latest id: 9
     - EMBD = embedded
         - Latest id: 4
     - FPGA = fpga
         - Latest id: 4
     - MLIN = ml inference
-        - Latest id: 3
-    - PRPR = parallel programming
         - Latest id: 9
+    - PRPR = parallel programming
+        - Latest id: 3
 
 ## In progress
 
-
 ## Planned
 
-- COMM-2: Set up cmake build system with an example
 - COMM-3: find datasheet from stm32 mcus and go through it and add links/docs to the repo
 - COMM-4: find datasheet from Sipeed tang nano and go through it and add links/docs to the repo
-- COMM-5: find datasheet from QMTECH Zynq-7000 and got through it and add links/docs to the repo
+- COMM-5: find datasheet from QMTECH Zynq-7000 and go through it and add links/docs to the repo
+- COMM-6: set up stm32 tools
+- COMM-7: set up esp32 tools
 
 - EMBD-0: What happens after reset?
 - EMBD-1: Read and write a hardware register
@@ -61,6 +61,18 @@
     - [x] fpga
     - [x] parallel programming
     - [x] ml inference
+- COMM-2: Set up cmake build system with an example
+    - [x] plain C/C++ app
+    - [x] gtest
+    - [x] google benchmark
+    - [x] shared and static library
+- COMM-8: find datasheet for radxa q6a and go through it and add links/docs to the repo
+    - [x] add links and docs
+    - [x] go through docs & datasheet
+- COMM-9: set up radxa tools
+    - [x] hexagon sdk example
+    - [x] arm compiler toolchains
+    - [x] convenience scripts
 
 </details>
 

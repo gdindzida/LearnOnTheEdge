@@ -1,0 +1,27 @@
+{
+  "ssh_target": "q6a",
+  "upload": [
+    {
+      "source": "build/linux-aarch64/basic_app",
+      "destination": "~/demo/basic_app"
+    },
+    {
+      "source": "resources",
+      "destination": "~/demo/resources"
+    }
+  ],
+  "run": {
+    "executable": "~/demo/basic_app",
+    "cwd": "~/demo",
+    "args": []
+  },
+  "download": [
+    {
+      "source": "~/demo/results",
+      "destination": "results"
+    }
+  ],
+  "clean": [
+    "~/demo"
+  ]
+}

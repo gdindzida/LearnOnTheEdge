@@ -1,0 +1,38 @@
+{
+    "ssh_target": "radxa@radxa-dragon-q6a",
+    "upload": [
+        {
+            "source": "/local/mnt/workspace/Qualcomm/Hexagon_SDK/6.6.0.0/examples/calculator/UbuntuARM_Debug_aarch64/ship/calculator",
+            "destination": "~/test/hexagon-calculator/bin/calculator"
+        },
+        {
+            "source": "/local/mnt/workspace/Qualcomm/Hexagon_SDK/6.6.0.0/examples/calculator/UbuntuARM_Debug_aarch64/ship/libcalculator.so",
+            "destination": "~/test/hexagon-calculator/lib/libcalculator.so"
+        },
+        {
+            "source": "/local/mnt/workspace/Qualcomm/Hexagon_SDK/6.6.0.0/examples/calculator/hexagon_Debug_toolv19_v68/ship/libcalculator_skel.so",
+            "destination": "~/test/hexagon-calculator/dsp/libcalculator_skel.so"
+        }
+    ],
+    "run": {
+        "executable": "/usr/bin/env",
+        "cwd": "~/test/hexagon-calculator",
+        "args": [
+            "LD_LIBRARY_PATH=/home/radxa/test/hexagon-calculator/lib",
+            "ADSP_LIBRARY_PATH=/hoe/radxa/test/hexagon-calculator/dsp;/usr/lib/dsp/cdsp;/usr/lib/dsp",
+            "DSP_LIBRARY_PATH=/home/radxa/test/hexagon-calculator/dsp;/usr/lib/dsp/cdsp;/usr/lib/dsp",
+            "/home/radxa/test/hexagon-calculator/bin/calculator",
+            "-r",
+            "0",
+            "-d",
+            "3",
+            "-U",
+            "1",
+            "-n",
+            "111"
+        ]
+    },
+    "clean": [
+        "~/test/hexagon-calculator"
+    ]
+}

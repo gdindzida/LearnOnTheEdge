@@ -1,0 +1,42 @@
+{
+    "ssh_target": "radxa@radxa-dragon-q6a",
+    "upload": [
+        {
+            "source": "build/arm/ship/image_blur_app",
+            "destination": "~/test/hexagon-blur/bin/image_blur_app"
+        },
+        {
+            "source": "build/arm/ship/libimage_blur.so",
+            "destination": "~/test/hexagon-blur/lib/libimage_blur.so"
+        },
+        {
+            "source": "build/dsp/ship/libimage_blur_skel.so",
+            "destination": "~/test/hexagon-blur/dsp/libimage_blur_skel.so"
+        }
+    ],
+    "run": {
+        "executable": "/usr/bin/env",
+        "cwd": "~/test/hexagon-blur",
+        "args": [
+            "LD_LIBRARY_PATH=/home/radxa/test/hexagon-blur/lib",
+            "ADSP_LIBRARY_PATH=/home/radxa/test/hexagon-blur/dsp;/usr/lib/dsp/cdsp;/usr/lib/dsp",
+            "DSP_LIBRARY_PATH=/home/radxa/test/hexagon-blur/dsp;/usr/lib/dsp/cdsp;/usr/lib/dsp",
+            "/home/radxa/test/hexagon-blur/bin/image_blur_app",
+            "--backend",
+            "cpu",
+            "--seed",
+            "42",
+            "--output-dir",
+            "output"
+        ]
+    },
+    "download": [
+        {
+            "source": "~/test/hexagon-blur/output",
+            "destination": "results"
+        }
+    ],
+    "clean": [
+        "~/test/hexagon-blur"
+    ]
+}

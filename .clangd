@@ -1,0 +1,39 @@
+If:
+  PathMatch: common/tools/cmake/templates/basic/.*
+CompileFlags:
+  CompilationDatabase: common/tools/cmake/templates/basic/build/linux-x64/
+
+---
+If:
+  PathMatch: common/tools/cmake/templates/benchmark/.*
+CompileFlags:
+  CompilationDatabase: common/tools/cmake/templates/benchmark/build/linux-x64/
+
+---
+If:
+  PathMatch: common/tools/cmake/templates/gtest/.*
+CompileFlags:
+  CompilationDatabase: common/tools/cmake/templates/gtest/build/linux-x64/
+
+---
+# Native CPU build. This is the fallback for the Hexagon blur sources and headers.
+If:
+  PathMatch: common/tools/cmake/templates/hexagon-blur/.*
+CompileFlags:
+  CompilationDatabase: common/tools/cmake/templates/hexagon-blur/build/native/
+
+---
+# UbuntuARM host build: app, shared host kernel, and generated QAIC stub.
+If:
+  PathMatch: common/tools/cmake/templates/hexagon-blur/(app|common|build/arm)/.*
+CompileFlags:
+  CompilationDatabase: common/tools/cmake/templates/hexagon-blur/build/arm/
+
+---
+# Hexagon DSP build: DSP implementation, shared kernel, and generated skeleton.
+# This fragment follows the ARM fragment so the DSP database wins for the
+# overlapping common/blur_kernel.c source when editing the DSP implementation.
+If:
+  PathMatch: common/tools/cmake/templates/hexagon-blur/(dsp|common|build/dsp)/.*
+CompileFlags:
+  CompilationDatabase: common/tools/cmake/templates/hexagon-blur/build/dsp/
