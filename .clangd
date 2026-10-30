@@ -4,6 +4,13 @@ CompileFlags:
   CompilationDatabase: common/tools/cmake/templates/basic/build/linux-x64/
 
 ---
+# Native x86-64 tensor library build.
+If:
+  PathMatch: lanes/ml_inference/tensor_lib/.*
+CompileFlags:
+  CompilationDatabase: lanes/ml_inference/tensor_lib/build/linux-x64/
+
+---
 If:
   PathMatch: common/tools/cmake/templates/benchmark/.*
 CompileFlags:
@@ -14,6 +21,16 @@ If:
   PathMatch: common/tools/cmake/templates/gtest/.*
 CompileFlags:
   CompilationDatabase: common/tools/cmake/templates/gtest/build/linux-x64/
+
+---
+# AArch64 static library build.
+If:
+  PathMatch: common/tools/cmake/templates/library/.*
+CompileFlags:
+  CompilationDatabase: common/tools/cmake/templates/library/build/linux-aarch64/
+  Add:
+    - -isystem
+    - /home/mdzida/workspace/projects/LearnOnTheEdge/common/tools/aarch64/arm-gnu-toolchain-13.3.rel1-x86_64-aarch64-none-linux-gnu/aarch64-none-linux-gnu/libc/usr/include
 
 ---
 # Native CPU build. This is the fallback for the Hexagon blur sources and headers.
@@ -28,6 +45,9 @@ If:
   PathMatch: common/tools/cmake/templates/hexagon-blur/(app|common|build/arm)/.*
 CompileFlags:
   CompilationDatabase: common/tools/cmake/templates/hexagon-blur/build/arm/
+  Add:
+    - -isystem
+    - /home/mdzida/workspace/projects/LearnOnTheEdge/common/tools/aarch64/arm-gnu-toolchain-13.3.rel1-x86_64-aarch64-none-linux-gnu/aarch64-none-linux-gnu/libc/usr/include
 
 ---
 # Hexagon DSP build: DSP implementation, shared kernel, and generated skeleton.

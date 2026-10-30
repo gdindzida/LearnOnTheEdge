@@ -3,6 +3,6 @@
 namespace greeting {
 const char* message()
 {
-    return "Hello from a static library!";
+    return "Hello from greeting!";
 }
 }

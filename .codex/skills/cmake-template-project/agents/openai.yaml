@@ -1,0 +1,3 @@
+interface:
+  display_name: "CMake Template Project"
+  short_description: "Create a project from a CMake template"

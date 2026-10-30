@@ -8,8 +8,7 @@ Each example is independent; there is no top-level build combining them.
 | `basic` | A C++ executable |
 | `gtest` | A library tested with GoogleTest and CTest |
 | `benchmark` | A microbenchmark using Google Benchmark |
-| `library/static` | A static library linked into an executable |
-| `library/shared` | A shared library linked into an executable |
+| `library` | Static and shared libraries with a small executable for each |
 | `hexagon-blur` | A 100×100 CPU/DSP image blur application |
 
 The general-purpose examples require CMake 3.20 or newer and a C++17 compiler. GoogleTest and
