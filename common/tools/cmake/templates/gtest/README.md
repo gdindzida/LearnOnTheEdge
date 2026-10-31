@@ -15,6 +15,9 @@ Configure with `-DBUILD_TESTING=OFF` to build only the library without downloadi
 GoogleTest. For multi-configuration generators, build with `--config Debug` and
 pass `-C Debug` to CTest.
 
+For GCC and Clang-compatible compilers, a Release configuration adds `-O2`;
+Debug and other configurations retain their usual compiler options.
+
 ## Linux x86-64 and AArch64
 
 Follow the [local toolchain setup](../../../aarch64/README.md) first. Set `REPO_ROOT` to the

@@ -1,47 +1,51 @@
-#include "tensor_lib/tensor.h"
-
-#include <algorithm>
-#include <functional>
-#include <numeric>
-#include <stdexcept>
-#include <utility>
+#include "tensor.h"
 
 namespace tensor_lib {
-namespace {
+namespace {} // namespace
 
-std::size_t element_count(const std::vector<std::size_t>& shape)
-{
-    if (std::any_of(shape.begin(), shape.end(), [](std::size_t extent) { return extent == 0; })) {
-        throw std::invalid_argument("tensor extents must be non-zero");
-    }
+template <typename T, std::size_t... DIMS>
+constexpr T &
+tensor_t<T, DIMS...>::operator()(tensor_index_t index) noexcept {
+  std::size_t linearIndex = 0;
 
-    return std::accumulate(shape.begin(), shape.end(), std::size_t{1}, std::multiplies<>{});
+  for (std::size_t dimension = 0; dimension < gc_rank; ++dimension) {
+    linearIndex = linearIndex * gc_dimensions[dimension] + index[dimension];
+  }
+
+  return m_data[linearIndex];
 }
 
-} // namespace
-
-Tensor::Tensor(std::vector<std::size_t> shape, float initial_value)
-    : shape_(std::move(shape)), data_(element_count(shape_), initial_value)
-{
+template <typename T, std::size_t... DIMS>
+constexpr typename tensor_t<T, DIMS...>::tensor_memory_t &
+tensor_t<T, DIMS...>::data() noexcept {
+  return m_data;
 }
 
-const std::vector<std::size_t>& Tensor::shape() const noexcept
-{
-    return shape_;
+template <typename T, std::size_t... DIMS>
+void tensor_t<T, DIMS...>::add(tensor_t &other) noexcept {
+  auto &otherData = other.data();
+
+  for (std::size_t linearIndex = 0; linearIndex < gc_size; ++linearIndex) {
+    m_data[linearIndex] += otherData[linearIndex];
+  }
 }
 
-std::size_t Tensor::size() const noexcept
-{
-    return data_.size();
+template <typename T, std::size_t... DIMS>
+void tensor_t<T, DIMS...>::sub(tensor_t &other) noexcept {
+  auto &otherData = other.data();
+
+  for (std::size_t linearIndex = 0; linearIndex < gc_size; ++linearIndex) {
+    m_data[linearIndex] -= otherData[linearIndex];
+  }
 }
 
-float& Tensor::operator[](std::size_t index)
-{
-    return data_.at(index);
+template <typename T, std::size_t... DIMS>
+void tensor_t<T, DIMS...>::mul(tensor_t &other) noexcept {
+  auto &otherData = other.data();
+
+  for (std::size_t linearIndex = 0; linearIndex < gc_size; ++linearIndex) {
+    m_data[linearIndex] *= otherData[linearIndex];
+  }
 }
 
-const float& Tensor::operator[](std::size_t index) const
-{
-    return data_.at(index);
-}
-}
+} // namespace tensor_lib

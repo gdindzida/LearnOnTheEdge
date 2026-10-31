@@ -1,6 +1,11 @@
 cmake_minimum_required(VERSION 3.20)
 project(hexagon_blur_template VERSION 1.0.0 LANGUAGES C CXX ASM)
 
+add_compile_options(
+    "$<$<AND:$<CONFIG:Release>,$<COMPILE_LANG_AND_ID:C,GNU,Clang,AppleClang,IntelLLVM>>:-O2>"
+    "$<$<AND:$<CONFIG:Release>,$<COMPILE_LANG_AND_ID:CXX,GNU,Clang,AppleClang,IntelLLVM>>:-O2>"
+)
+
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 # build_cmake selects a Qualcomm toolchain before project() runs. Ordinary

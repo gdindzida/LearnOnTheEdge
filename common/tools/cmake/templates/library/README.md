@@ -15,6 +15,9 @@ and `greeting_shared_app`. The shared executable runs from the build directory;
 when copying it elsewhere, copy `libgreeting_shared.so` too or make that
 library available through the runtime library path.
 
+For GCC and Clang-compatible compilers, a Release configuration adds `-O2`;
+Debug and other configurations retain their usual compiler options.
+
 ## Linux x86-64 and AArch64
 
 Follow the [local toolchain setup](../../../aarch64/README.md) first. Set

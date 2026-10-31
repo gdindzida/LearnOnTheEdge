@@ -14,6 +14,9 @@
 
 ## In progress
 
+- MLIN-1: Implement the basic neural network operator layer
+- MLIN-2: Implement convolution and run your first complete CNN
+
 ## Planned
 
 - COMM-3: find datasheet from stm32 mcus and go through it and add links/docs to the repo
@@ -39,9 +42,6 @@
 - PRPR-2: Multidimensional threads: Image blur 
 - PRPR-3: Matrix multiplication and memory hierarchy
 
-- MLIN-0: Build a minimal tensor library
-- MLIN-1: Implement the basic neural network operator layer
-- MLIN-2: Implement convolution and run your first complete CNN
 - MLIN-3: Build the correctness + benchmarking infrastructure
 - MLIN-4: Optimize GEMM and understand CPU performance
 - MLIN-5: Build a Tiny Inference Runtime
@@ -73,7 +73,6 @@
     - [x] hexagon sdk example
     - [x] arm compiler toolchains
     - [x] convenience scripts
-
 </details>
 
 ### Embedded
@@ -89,6 +88,7 @@
 ### ML inference
 
 <details>
+- MLIN-0: Build a minimal tensor library
 </details>
 
 ### Parallel programing

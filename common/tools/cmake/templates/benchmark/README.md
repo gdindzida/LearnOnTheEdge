@@ -13,6 +13,8 @@ across several input sizes and keeps allocation outside the timed loop.
 `benchmark::benchmark_main` supplies the entry point. To select a benchmark or
 write JSON results, pass `--benchmark_filter=BM_Sum` or
 `--benchmark_out=results.json --benchmark_out_format=json` to the executable.
+For GCC and Clang-compatible compilers, Release adds `-O2`; other
+configurations retain their usual compiler options.
 For multi-configuration generators, build with `--config Release` and run
 `build/Release/sum_benchmark` (with `.exe` on Windows).
 

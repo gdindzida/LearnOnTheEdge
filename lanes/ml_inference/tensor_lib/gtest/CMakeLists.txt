@@ -1,0 +1,2 @@
+add_executable(tensor_lib_tests tensor_test.cpp)
+target_link_libraries(tensor_lib_tests PRIVATE tensor_lib_static GTest::gtest_main)

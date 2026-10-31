@@ -1,6 +1,10 @@
 cmake_minimum_required(VERSION 3.20)
 project(benchmark_template VERSION 1.0.0 LANGUAGES CXX)
 
+add_compile_options(
+    "$<$<AND:$<CONFIG:Release>,$<COMPILE_LANG_AND_ID:CXX,GNU,Clang,AppleClang,IntelLLVM>>:-O2>"
+)
+
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 include(FetchContent)

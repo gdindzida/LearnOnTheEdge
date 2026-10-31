@@ -10,6 +10,8 @@ cmake --build build
 
 Add source files to `add_executable` and set requirements on the target with
 `target_compile_features`, `target_include_directories`, and `target_link_libraries`.
+For GCC and Clang-compatible compilers, a Release configuration adds `-O2`;
+Debug and other configurations retain their usual compiler options.
 For multi-configuration generators, build with `--config Debug` and run the
 executable from `build/Debug/` (with `.exe` on Windows).
 

@@ -23,6 +23,9 @@ build/native/image_blur_app --backend cpu --seed 42 --output-dir results/native
 
 The native CPU-only binary deliberately rejects `--backend dsp` because it is not linked with FastRPC.
 
+For GCC and Clang-compatible compilers, Release builds add `-O2` to C and C++
+compilation. Other build types retain their usual compiler options.
+
 ## Build the ARM host and Hexagon DSP objects
 
 Set up the SDK first:

@@ -16,6 +16,10 @@ Google Benchmark require Git and network access on the first configure; their
 versions are pinned in the respective CMakeLists.txt files. No global dependency
 installation is needed. Build commands are in each example's README.
 
+For GCC and Clang-compatible compilers, the templates add `-O2` to C and C++
+Release builds. No build type is selected automatically, and other build types
+keep their usual compiler options.
+
 ## Linux build targets
 
 The general-purpose templates support native Linux x86-64 and AArch64 Linux cross builds.

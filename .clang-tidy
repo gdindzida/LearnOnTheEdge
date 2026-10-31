@@ -1,0 +1,249 @@
+Checks: >
+  -*,
+  readability-identifier-naming,
+  modernize-*,
+  -modernize-use-trailing-return-type,
+  -modernize-use-using
+  bugprone-*,
+  -bugprone-easily-swappable-parameters,
+  performance-*,
+  clang-analyzer-*
+
+HeaderFilterRegex: '^(src|include|apps)/.*'
+
+CheckOptions:
+
+  - key: modernize-use-using.IgnoreExternC
+    value: "true"
+
+  # =========================================================
+  # GLOBAL VARIABLE NAMING
+  # =========================================================
+
+  # Global variables case style
+  # - options: lower_case, CamelCase, UPPER_CASE
+  - key: readability-identifier-naming.GlobalVariableCase
+    value: camelBack
+
+  # Prefix for global variables
+  # - common: g_, g, global_
+  # - leave empty for none
+  - key: readability-identifier-naming.GlobalVariablePrefix
+    value: "g_"
+
+  # Suffix for global variables
+  - key: readability-identifier-naming.GlobalVariableSuffix
+    value: ""
+
+  # =========================
+  # GLOBAL CONSTANTS (const / constexpr)
+  # =========================
+  - key: readability-identifier-naming.GlobalConstantCase
+    value: camelBack
+
+  # Optional prefix style (pick ONE style below)
+
+  # Style A: NO prefix (clean modern C++)
+  - key: readability-identifier-naming.GlobalConstantPrefix
+    value: "gc_"
+
+  # =========================================================
+  # CONSTANTS (compile-time + const globals)
+  # =========================================================
+
+  # Constant case style (const variables, constexpr, etc.)
+  # - typical: UPPER_CASE or CamelCase
+  - key: readability-identifier-naming.ConstantCase
+    value: camelBack
+
+  # Prefix for constants
+  # - common: k_, c_, none
+  - key: readability-identifier-naming.ConstantPrefix
+    value: "c_"
+
+  # Suffix for constants
+  - key: readability-identifier-naming.ConstantSuffix
+    value: ""
+
+
+  # =========================================================
+  # STATIC VARIABLES (file scope / function static)
+  # =========================================================
+
+  # Static variable naming style
+  - key: readability-identifier-naming.StaticVariableCase
+    value: camelBack
+
+  # Prefix for static variables
+  # - common: s_, s
+  - key: readability-identifier-naming.StaticVariablePrefix
+    value: "s_"
+
+  # Suffix for static variables
+  - key: readability-identifier-naming.StaticVariableSuffix
+    value: ""
+
+
+  # =========================================================
+  # LOCAL VARIABLES
+  # =========================================================
+
+  # Local variable naming style
+  - key: readability-identifier-naming.VariableCase
+    value: camelBack
+
+  # Prefix for local variables (rarely used)
+  - key: readability-identifier-naming.VariablePrefix
+    value: ""
+
+  # Suffix for local variables
+  - key: readability-identifier-naming.VariableSuffix
+    value: ""
+
+
+  # =========================================================
+  # FUNCTION PARAMETERS
+  # =========================================================
+
+  # Parameter naming style
+  - key: readability-identifier-naming.ParameterCase
+    value: camelBack
+
+  # Prefix for parameters (e.g., p_)
+  - key: readability-identifier-naming.ParameterPrefix
+    value: ""
+
+  # Suffix for parameters
+  - key: readability-identifier-naming.ParameterSuffix
+    value: ""
+
+
+  # =========================================================
+  # MEMBER VARIABLES (ALL)
+  # =========================================================
+
+  # General member variable naming style
+  - key: readability-identifier-naming.MemberCase
+    value: camelBack
+
+  # =========================================================
+  # PUBLIC MEMBER VARIABLES
+  # =========================================================
+
+  - key: readability-identifier-naming.PublicMemberCase
+    value: camelBack
+
+  # Prefix for parameters (e.g., p_)
+  - key: readability-identifier-naming.PublicMemberPrefix
+    value: ""
+
+
+  # Suffix for public members
+  - key: readability-identifier-naming.PublicMemberSuffix
+    value: ""
+
+
+  # =========================================================
+  # PRIVATE MEMBER VARIABLES
+  # =========================================================
+
+  - key: readability-identifier-naming.PrivateMemberCase
+    value: camelBack
+
+  # Common C++ convention: m_
+  - key: readability-identifier-naming.PrivateMemberPrefix
+    value: "m_"
+
+  - key: readability-identifier-naming.PrivateMemberSuffix
+    value: ""
+
+
+  # =========================================================
+  # PROTECTED MEMBER VARIABLES
+  # =========================================================
+
+  - key: readability-identifier-naming.ProtectedMemberCase
+    value: camelBack
+
+  - key: readability-identifier-naming.ProtectedMemberPrefix
+    value: "m_"
+
+  - key: readability-identifier-naming.ProtectedMemberSuffix
+    value: ""
+
+
+  # =========================================================
+  # STATIC CLASS MEMBERS
+  # =========================================================
+
+  - key: readability-identifier-naming.StaticMemberCase
+    value: camelBack
+
+  - key: readability-identifier-naming.StaticMemberPrefix
+    value: "s_"
+
+  - key: readability-identifier-naming.StaticMemberSuffix
+    value: ""
+
+
+  # =========================================================
+  # ENUMS / ENUM VALUES
+  # =========================================================
+
+  - key: readability-identifier-naming.EnumCase
+    value: CamelCase
+
+  - key: readability-identifier-naming.EnumConstantCase
+    value: UPPER_CASE
+
+  # Prefix enum constants (optional style: e_)
+  - key: readability-identifier-naming.EnumConstantPrefix
+    value: ""
+
+
+  # =========================================================
+  # TYPES (for completeness)
+  # =========================================================
+
+  - key: readability-identifier-naming.ClassCase
+    value: lower_case
+
+  - key: readability-identifier-naming.ClassSuffix
+    value: "_t"
+
+  - key: readability-identifier-naming.StructCase
+    value: lower_case
+
+  - key: readability-identifier-naming.StructSuffix
+    value: "_t"
+
+  - key: readability-identifier-naming.UnionCase
+    value: lower_case
+
+  - key: readability-identifier-naming.UnionSuffix
+    value: "_t"
+
+  - key: readability-identifier-naming.TypedefCase
+    value: lower_case
+
+  - key: readability-identifier-naming.TypedefSuffix
+    value: "_t"
+
+  - key: readability-identifier-naming.TypeAliasCase
+    value: lower_case
+
+  - key: readability-identifier-naming.TypeAliasSuffix
+    value: "_t"
+
+  # =========================================================
+  # FUNCTIONS
+  # =========================================================
+
+  - key: readability-identifier-naming.FunctionCase
+    value: lower_case
+
+  - key: readability-identifier-naming.FunctionPrefix
+    value: ""
+
+  - key: readability-identifier-naming.FunctionSuffix
+    value: ""
