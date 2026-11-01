@@ -48,6 +48,28 @@ Run all arithmetic benchmarks with:
 ./build/linux-x64/benchmark/tensor_lib_benchmark
 ```
 
+
+## Benchmark stability settings
+
+The benchmark executable deliberately uses the following Google Benchmark
+settings for every case:
+
+- **One-second warmup** lets the CPU reach a steady performance state before
+  samples are recorded. This matters on the reference Ryzen 7 7700, where the
+  runner reports that CPU frequency scaling is enabled.
+- **A 0.5-second minimum measurement per sample** makes timer overhead and
+  short-term scheduling variation insignificant relative to the work measured.
+- **Three repetitions** provide a useful coefficient of variation (`cv`), so
+  repeatability is visible instead of relying on one result.
+- **Random interleaving** prevents registration order from biasing results; in
+  particular, the first operation would otherwise be more likely to measure
+  the CPU while it is still changing frequency.
+
+These are implemented in the benchmark registration and entry point, rather
+than requiring a long command line. They prioritize comparable measurements
+over turnaround time: the 12 registered cases need at least about 30 seconds
+(`12 × (1 s warmup + 3 × 0.5 s)`), plus setup and calibration.
+
 Each operation is benchmarked at 32×32, 256×256, 1024×1024, and 4096×4096.
 These sizes place the two tensor operands at different points in the cache
 hierarchy. The reference machine reported 32 KiB L1 data caches, 1 MiB L2
@@ -68,41 +90,35 @@ capacity; actual cache traffic depends on the operation, cache policy, and
 processor. Together, the cases show the transition from L1-resident work,
 through L2/L3-sized working sets, to a working set larger than L3.
 
-## First benchmark results
+## Benchmark results
 
-These are historical measurements, recorded before this project standardized
-Release builds on `-O2` and before the GCC Release benchmark target enabled
-32-byte loop alignment. See the [loop-alignment walkthrough](nuggets/function_aligment/README.md)
-for the separate manual `-O3`/32-byte before-and-after experiment, function
-addresses and sizes, disassembly, and cache-line calculations.
+These measurements were collected on 2026-11-01 from the Release build on the
+reference Ryzen 7 7700 host, pinned to CPU 0. The host reported 32 KiB L1 data
+caches (8), 1 MiB L2 caches (8), and a 32 MiB shared L3 cache.
 
-The following is the first recorded result set from a short smoke run on the
-reference machine after selecting the current four sizes. It used Release
-mode and `--benchmark_min_time=0.001s`. Times are CPU time per iteration; results are
-machine-specific, and the brief run is intended as an initial baseline rather
-than a stable comparison. The host reported 32 KiB L1 data caches (8), 1 MiB
-L2 caches (8), and a 32 MiB L3 cache (1).
+The table shows CPU-time means across three repetitions; `cv` is the CPU-time
+coefficient of variation. The benchmarks were warmed up and randomly
+interleaved as described above. CPU scaling remained enabled, so the higher-CV
+entries should be treated as less stable measurements.
 
-| Operation | Shape | CPU time / iteration | Items / second |
-| --- | ---: | ---: | ---: |
-| Add | 32×32 | 60.2 ns | 17.00 G/s |
-| Add | 256×256 | 4.816 μs | 13.61 G/s |
-| Add | 1024×1024 | 86.007 μs | 12.19 G/s |
-| Add | 4096×4096 | 4.579 ms | 3.66 G/s |
-| Sub | 32×32 | 62.7 ns | 16.34 G/s |
-| Sub | 256×256 | 4.685 μs | 13.99 G/s |
-| Sub | 1024×1024 | 93.673 μs | 11.19 G/s |
-| Sub | 4096×4096 | 5.091 ms | 3.30 G/s |
-| Mul | 32×32 | 92.6 ns | 11.06 G/s |
-| Mul | 256×256 | 5.861 μs | 11.18 G/s |
-| Mul | 1024×1024 | 85.134 μs | 12.32 G/s |
-| Mul | 4096×4096 | 4.743 ms | 3.54 G/s |
+The [loop-alignment walkthrough](nuggets/function_aligment/README.md) remains
+side information: it documents a separate manual `-O3`/32-byte alignment
+experiment, including disassembly and front-end counter analysis.
 
-To do a short smoke run across all 12 cases, use:
-
-```sh
-./build/linux-x64/benchmark/tensor_lib_benchmark --benchmark_min_time=0.001s
-```
+| Operation | Shape | Mean CPU time / iteration | Items / second | CPU `cv` |
+| --- | ---: | ---: | ---: | ---: |
+| Add | 32×32 | 49.0 ns | 20.90 G/s | 0.14% |
+| Add | 256×256 | 3.906 μs | 16.78 G/s | 2.39% |
+| Add | 1024×1024 | 72.877 μs | 14.42 G/s | 5.68% |
+| Add | 4096×4096 | 4.088 ms | 4.10 G/s | 1.61% |
+| Sub | 32×32 | 48.8 ns | 20.97 G/s | 0.09% |
+| Sub | 256×256 | 4.440 μs | 14.95 G/s | 14.09% |
+| Sub | 1024×1024 | 77.371 μs | 13.78 G/s | 16.42% |
+| Sub | 4096×4096 | 3.998 ms | 4.20 G/s | 1.47% |
+| Mul | 32×32 | 48.9 ns | 20.94 G/s | 0.01% |
+| Mul | 256×256 | 3.882 μs | 16.89 G/s | 2.07% |
+| Mul | 1024×1024 | 70.490 μs | 14.88 G/s | 1.01% |
+| Mul | 4096×4096 | 4.101 ms | 4.09 G/s | 0.95% |
 
 To run a single operation, pass a Google Benchmark filter, for example:
 
