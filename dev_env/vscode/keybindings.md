@@ -1,3 +1,10 @@
+# VS Code keybindings
+
+## Navigation
+
+- [Home](../../README.md)
+- [Parent: VS Code configuration](README.md)
+
 install vim extension
 
 keybindings json

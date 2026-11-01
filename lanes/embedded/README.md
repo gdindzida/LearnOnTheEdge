@@ -1,5 +1,10 @@
 # Roadmap
 
+## Navigation
+
+- [Home](../../README.md)
+- [Parent: Learning lanes](../README.md)
+
 ## EMBD-0: What happens after reset?
 
 <details>

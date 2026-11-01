@@ -1,5 +1,10 @@
 # Roadmap
 
+## Navigation
+
+- [Home](../../README.md)
+- [Parent: Learning lanes](../README.md)
+
 ## FPGA-0: Set up RTL enviroment
 
 <details>

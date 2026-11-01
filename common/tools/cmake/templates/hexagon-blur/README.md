@@ -1,5 +1,10 @@
 # Hexagon blur template
 
+## Navigation
+
+- [Home](../../../../../README.md)
+- [Parent: CMake templates](../README.md)
+
 This template generates a deterministic 100×100, 8-bit grayscale image and applies a 3×3 box blur. The same kernel can run locally on the CPU or remotely on the QCS6490 Hexagon CDSP through FastRPC.
 
 The filter clamps coordinates at the image edges and truncates the nine-pixel average to an integer. The program writes binary PGM files named `input.pgm` and `blurred.pgm`.

@@ -1,5 +1,10 @@
 # Basic executable
 
+## Navigation
+
+- [Home](../../../../../README.md)
+- [Parent: CMake templates](../README.md)
+
 From this directory:
 
 ```sh

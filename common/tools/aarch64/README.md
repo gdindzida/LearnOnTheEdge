@@ -1,5 +1,10 @@
 # AArch64 Linux cross-compilation
 
+## Navigation
+
+- [Home](../../../README.md)
+- [Parent: Common tools](../README.md)
+
 This setup targets ordinary C/C++ Linux applications on the Radxa Dragon Q6A
 running Ubuntu 24.04 (Noble). The build host must be Linux x86-64. Native x86-64
 builds continue to use the host compiler.

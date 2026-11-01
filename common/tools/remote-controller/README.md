@@ -1,5 +1,10 @@
 # remote-controller
 
+## Navigation
+
+- [Home](../../../README.md)
+- [Parent: Common tools](../README.md)
+
 Four commands, each taking a JSON manifest:
 
 ```sh

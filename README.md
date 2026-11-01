@@ -1,11 +1,14 @@
 # LearnOnTheEdge
 
-Collection of small projects/exercises in low level software/hardware engineering.
+## About
 
-The goal is to track development in different domains (lanes) but keep progress in small chunk sizes and manageble.
+A collection of small projects and exercises in low-level software and hardware engineering. The repository tracks learning in focused chunks across embedded software, FPGA design, machine learning inference, and parallel programming.
 
-Currently developing 4 tracks: embedded software engineering, fpga basics, ml inference basics and parallel programming. Those are currently interests of mine and this repo tries to systematically track and enable exploration of these topics. Some topics may turn out as deadend and new ones may arise but this is attempt to create an order in chaos of my interests.
+Work is kept in manageable chunks. The backlog collects refined work items, while lanes hold the topic roadmaps and projects that produce them.
 
-BACKLOG.md should be a "cookie jar" of relativly small chunks of work that could be picked up. The idea is that each chunk of work should not take more than 6 hours of work but that is just a guiding idea. Work chunks are brought from refined roadmaps from each lane when they are ready to start working on them. So some time needs to be spent periodically to refine next work chunks. 
+## Navigation
 
-Common subfolder is meant to be set of frameworks and tools to enable work on excercises seemless. So some work chunks will relate to implementing parts of common subfolder.
+- [Learning lanes](lanes/README.md) — roadmaps and projects by topic.
+- [Common resources](common/README.md) — shared hardware notes and tools.
+- [Development environment](dev_env/README.md) — local shell and editor configuration.
+- [Backlog](BACKLOG.md) — small, refined pieces of work.

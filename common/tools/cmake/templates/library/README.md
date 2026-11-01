@@ -1,5 +1,10 @@
 # Static and shared library
 
+## Navigation
+
+- [Home](../../../../../README.md)
+- [Parent: CMake templates](../README.md)
+
 This template builds static and shared versions of the same `greeting` library,
 plus one small executable for each version.
 

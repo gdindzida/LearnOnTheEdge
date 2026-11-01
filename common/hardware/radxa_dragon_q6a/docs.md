@@ -1,5 +1,10 @@
 # Radxa Dragon Q6A Documentation
 
+## Navigation
+
+- [Home](../../../README.md)
+- [Parent: Radxa Dragon Q6A](README.md)
+
 The official Radxa Dragon Q6A documentation is available in the [Radxa documentation](https://docs.radxa.com/en/dragon/q6a).
 
 The QCS6490 and QCS5430 data sheet is included in this directory as `QCS6490_and_QCS5430_Data_Sheet.pdf`.

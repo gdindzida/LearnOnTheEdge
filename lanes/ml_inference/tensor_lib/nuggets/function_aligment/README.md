@@ -1,5 +1,11 @@
 # Check loop alignment
 
+## Navigation
+
+- [Home](../../../../../README.md)
+- [Parent: Tensor library](../../README.md)
+
+## 0. Check -falign-loops option default
 Check GCC's default loop-alignment setting for the current machine:
 
 ```sh

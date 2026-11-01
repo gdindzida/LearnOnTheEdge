@@ -1,5 +1,12 @@
 # Roadmap
 
+## Navigation
+
+- [Home](../../README.md)
+- [Parent: Learning lanes](../README.md)
+- **Children**
+  - [Tensor library](tensor_lib/README.md) — implementation and benchmarking work for MLIN-0.
+
 ## MLIN-0: Build a minimal tensor library
 
 <details>

@@ -1,15 +1,18 @@
 # CMake templates
 
+## Navigation
+
+- [Home](../../../../README.md)
+- [Parent: CMake](../README.md)
+- **Children**
+  - [Basic executable](basic/README.md) — a C++ executable.
+  - [GoogleTest](gtest/README.md) — a library with GoogleTest and CTest.
+  - [Google Benchmark](benchmark/README.md) — a microbenchmark.
+  - [Library](library/README.md) — static and shared libraries with example executables.
+  - [Hexagon blur](hexagon-blur/README.md) — a CPU/DSP image-blur application.
+
 Copy an example directory into a new project and rename its project and targets.
 Each example is independent; there is no top-level build combining them.
-
-| Directory | Example |
-| --- | --- |
-| `basic` | A C++ executable |
-| `gtest` | A library tested with GoogleTest and CTest |
-| `benchmark` | A microbenchmark using Google Benchmark |
-| `library` | Static and shared libraries with a small executable for each |
-| `hexagon-blur` | A 100×100 CPU/DSP image blur application |
 
 The general-purpose examples require CMake 3.20 or newer and a C++17 compiler. GoogleTest and
 Google Benchmark require Git and network access on the first configure; their

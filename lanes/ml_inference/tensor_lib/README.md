@@ -1,5 +1,12 @@
 # Tensor library
 
+## Navigation
+
+- [Home](../../../README.md)
+- [Parent: ML inference](../README.md)
+- **Children**
+  - [Check loop alignment](nuggets/function_aligment/README.md) — a side investigation of generated code and CPU performance.
+
 This project builds static and shared versions of `tensor_lib`, a GoogleTest
 suite, and Google Benchmark cases for elementwise addition, subtraction, and
 multiplication.
@@ -112,7 +119,7 @@ cmake -S . -B build/library-only -DBUILD_TESTING=OFF -DTENSOR_LIB_BUILD_BENCHMAR
 
 ## AArch64
 
-Follow the [local toolchain setup](../../../aarch64/README.md) first. Set
+Follow the [local toolchain setup](../../../common/tools/aarch64/README.md) first. Set
 `REPO_ROOT` to the absolute repository path, then configure and build:
 
 ```sh

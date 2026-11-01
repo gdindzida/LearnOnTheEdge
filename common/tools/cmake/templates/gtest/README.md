@@ -1,5 +1,10 @@
 # GoogleTest
 
+## Navigation
+
+- [Home](../../../../../README.md)
+- [Parent: CMake templates](../README.md)
+
 From this directory (Git and internet access are required on first configure):
 
 ```sh

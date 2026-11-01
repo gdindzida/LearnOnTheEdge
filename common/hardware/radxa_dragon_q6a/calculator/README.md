@@ -1,5 +1,10 @@
 # Hexagon calculator on Radxa Dragon Q6A
 
+## Navigation
+
+- [Home](../../../../README.md)
+- [Parent: Radxa Dragon Q6A](../README.md)
+
 `radxa_deployment_manifest.json` deploys the Hexagon SDK 6.6.0.0 calculator
 example over SSH to `radxa@radxa-dragon-q6a`. It uses the repository's
 [remote-controller](../../../tools/remote-controller/README.md).

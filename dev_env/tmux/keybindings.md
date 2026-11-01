@@ -1,4 +1,11 @@
-```
+# tmux keybindings
+
+## Navigation
+
+- [Home](../../README.md)
+- [Parent: tmux configuration](README.md)
+
+```tmux
 # ── Prefix ────────────────────────────────────────────────────────────────────
 # Change prefix from Ctrl+b to Ctrl+a (easier to reach)
 unbind C-b
